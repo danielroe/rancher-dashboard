@@ -582,6 +582,14 @@ module.exports = function(dir, _appConfig) {
           });
         }
       });
+
+      for (let i = 0; i < config.plugins.length; i++) {
+        const p = config.plugins[i];
+
+        if (p?.options?.rel === 'prefetch') {
+          p.options.includeHtmlNames = [];
+        }
+      }
     },
   };
 
